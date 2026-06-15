@@ -1211,7 +1211,7 @@ function ContactSection() {
             }}
           >
             {[
-              { icon: Mail, label: 'hello@akani.us', href: 'mailto:hello@akani.us' },
+              { icon: Mail, label: 'ceo@akani.us', href: 'mailto:ceo@akani.us' },
               { icon: Globe, label: 'akani.us', href: 'https://akani.us' },
             ].map(({ icon: Icon, label, href }) => (
               <a
