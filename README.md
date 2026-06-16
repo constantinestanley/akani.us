@@ -1,23 +1,40 @@
 # akani.us
 
-Static website prepared for Cloudflare Pages.
+React/TanStack Router website prepared for Cloudflare Pages.
 
 ## Cloudflare Pages settings
 
 Use these settings when creating the Pages project:
 
-- Framework preset: None / Static HTML
-- Build command: leave empty
-- Build output directory: `/`
+- Framework preset: Vite
+- Build command: `npm run build`
+- Build output directory: `dist`
 - Root directory: `/`
-- Node.js version: not required
+- Node.js version: `20`
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+## Production build
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Files
 
-- `index.html` - static landing page
-- `styles.css` - browser-safe CSS without a build step
+- `routes/` - TanStack Router file routes
+- `src/main.tsx` - React app bootstrap
+- `vite.config.ts` - Vite + TanStack Router plugin config
+- `index.html` - Vite HTML entry
+- `styles.css` - global styles imported by `routes/__root.tsx`
 - `_headers` - Cloudflare Pages security/cache headers
-- `_redirects` - fallback routing to `index.html`
+- `_redirects` - SPA fallback routing to `index.html`
 
 ## Custom domain
 
@@ -30,4 +47,4 @@ After deploying the Pages project:
 
 ## Notes
 
-This repository currently deploys as a no-build static site. Do not use the previous Tailwind `@import` syntax unless a build pipeline is added later.
+This repository is no longer configured as a no-build static site. It builds through Vite and outputs to `dist` for Cloudflare Pages.
