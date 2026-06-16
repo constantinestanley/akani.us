@@ -1,0 +1,3 @@
+# Cloudflare Pages redirect rules
+# Keep direct files working, then fall back unknown paths to the homepage.
+/* /index.html 200
