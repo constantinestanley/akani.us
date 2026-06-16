@@ -1,9 +1,11 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { useState, useEffect } from 'react'
+import type { ReactNode } from 'react'
 import { Menu, X } from 'lucide-react'
 import '../styles.css'
 
 export const Route = createRootRoute({
+  component: RootLayout,
   head: () => ({
     meta: [
       { charSet: 'utf-8' },
@@ -20,7 +22,6 @@ export const Route = createRootRoute({
       { name: 'theme-color', content: '#06060A' },
     ],
   }),
-  shellComponent: RootDocument,
 })
 
 const NAV_LINKS = [
@@ -68,7 +69,6 @@ function Navbar() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Logo */}
         <a
           href="/"
           style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}
@@ -105,7 +105,6 @@ function Navbar() {
           </span>
         </a>
 
-        {/* Desktop links */}
         <div
           style={{ display: 'flex', alignItems: 'center', gap: 36 }}
           className="hidden md:flex"
@@ -117,7 +116,6 @@ function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA + mobile toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <a
             href="#contact"
@@ -162,7 +160,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div
           style={{
@@ -211,27 +208,11 @@ function Navbar() {
   )
 }
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootLayout({ children }: { children?: ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Sora:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
-        <Navbar />
-        <div style={{ paddingTop: 68 }}>{children}</div>
-        <Scripts />
-      </body>
-    </html>
+    <>
+      <Navbar />
+      <div style={{ paddingTop: 68 }}>{children ?? <Outlet />}</div>
+    </>
   )
 }
