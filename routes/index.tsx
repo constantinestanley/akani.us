@@ -120,7 +120,7 @@ const PRODUCTS = [
 
 const STATS = [
   {
-    value: '5,000+',
+    value: '50,000+',
     label: 'Consulting Hours',
     sub: 'Across all product verticals',
   },
@@ -331,7 +331,7 @@ function HeroSection() {
             hospitality, arts, healthcare, and legal tech — powered by AI and backed
             by{' '}
             <span style={{ color: '#C9973A', fontWeight: 600 }}>
-              5,000+ consulting hours
+              50,000+ consulting hours
             </span>{' '}
             with the world's top MNCs.
           </p>
@@ -1008,7 +1008,7 @@ function AboutSection() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {[
                 'Top 10 Global MNCs',
-                '5,000+ Man Hours',
+                '50,000+ Man Hours',
                 'Multi-Industry',
                 'AI-First Approach',
                 'Enterprise Architecture',
@@ -1247,7 +1247,7 @@ function ContactSection() {
               position: 'relative',
             }}
           >
-            <a href="mailto:hello@akani.us" className="btn-gold">
+            <a href="mailto:ceo@akani.us" className="btn-gold">
               Send a Message <Mail size={14} />
             </a>
             <a href="/faq" className="btn-outline">
